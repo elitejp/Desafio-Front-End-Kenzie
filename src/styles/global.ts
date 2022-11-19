@@ -17,7 +17,8 @@ export default createGlobalStyle`
     --primary_text0: #2b2b2b;
     --primary_text100: #6b6b6b;
     --primary_text200: #d2d2d2;
-    --secundary_text: #447abe;
+    --secundary_text0: #447abe;
+    --secundary_text100: #609eec;
   }
 
   body {
@@ -26,9 +27,11 @@ export default createGlobalStyle`
 
   button, div, label, select, h1, h2, h3, h4, h5, h6 {
   color: var(--primary_text100);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
 
   input{
     color: var(--primary_text0);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
 `;

@@ -13,12 +13,18 @@ const Login: React.FC = () => {
 
   const logIn = (data: FieldValues) => {
     saveToken(data.username);
+    localStorage.setItem("token", data.username);
     history.push("/anticipate");
   };
 
   return (
     <StyledLogin>
-      <Form schema={loginSchema} buttonText="Logar" submitHandler={logIn} />
+      <Form
+        schema={loginSchema}
+        titleText=""
+        buttonText="Logar"
+        submitHandler={logIn}
+      />
     </StyledLogin>
   );
 };

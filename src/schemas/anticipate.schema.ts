@@ -1,13 +1,22 @@
 import * as yup from "yup";
 
-const antecipateSchema = yup.object().shape({
-  amount: yup.number().required("Campo requerido!"),
+const anticipateSchema = yup.object().shape({
+  amount: yup
+    .number()
+    .required("Campo requerido!")
+    .typeError("Deve preencher com um numero"),
 
-  installments: yup.number().required("Campo requerido!"),
+  installments: yup
+    .number()
+    .required("Campo requerido!")
+    .typeError("Deve preencher com um numero"),
 
-  mdr: yup.number().required("Campo requerido!"),
+  mdr: yup
+    .number()
+    .required("Campo requerido!")
+    .typeError("Deve preencher com um numero"),
 
-  days: yup.string(),
+  days: yup.string().matches(/^\S*$/, "Sem espaços"),
 });
 
-export default antecipateSchema;
+export default anticipateSchema;

@@ -3,12 +3,17 @@ import React from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 
-import { StyledForm } from "./styles";
+import { StyledForm, StyledFormButton, StyledFormTitle } from "./styles";
 import Props from "./types";
 import Input from "../Input";
 import { corretLabel } from "../../utils/corretLabel";
 
-const Form: React.FC<Props> = ({ schema, buttonText, submitHandler }) => {
+const Form: React.FC<Props> = ({
+  schema,
+  titleText,
+  buttonText,
+  submitHandler,
+}) => {
   const {
     register,
     handleSubmit,
@@ -19,6 +24,7 @@ const Form: React.FC<Props> = ({ schema, buttonText, submitHandler }) => {
 
   return (
     <StyledForm onSubmit={handleSubmit(submitHandler)}>
+      {titleText !== "" && <StyledFormTitle>{titleText}</StyledFormTitle>}
       {schemaFields.map((field, index) => {
         return (
           <Input
@@ -31,7 +37,9 @@ const Form: React.FC<Props> = ({ schema, buttonText, submitHandler }) => {
           />
         );
       })}
-      <button type="submit">{buttonText}</button>
+      <StyledFormButton isDisplayed={buttonText !== ""} type="submit">
+        {buttonText}
+      </StyledFormButton>
     </StyledForm>
   );
 };
